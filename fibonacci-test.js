@@ -1,14 +1,22 @@
-var sequence[0] = 1;
+//define first two digits
+var sequence = [1,1];
 var sequenceOutput = prompt("How many digits of the Fibonacci sequence would you like to see?");
-//test input is a valid
-if (typeof sequenceOutput === "number" && sequenceOutput >= 1)
+//verify input
+if (typeof(sequenceOutput === "number") && sequenceOutput >= 2)
 {
   //run program
-  for (i = 1, i++, i<=sequenceOutput){
-    sequence = sequence[i] + sequence[i-1];
+  for (i = 2;i < sequenceOutput; i++){
+    sequence[i] = sequence[i-1] + sequence[i-2];
+  }
+ //print fibonacci sequence
+ document.getElementById("dev").innerHTML = sequence;
+}
+else if (sequenceOutput === 1)
+{
+  document.getElementById("dev").innerHTML = sequence[0];
 }
 else
 {
-  console.log(sequence+" is not valid.");
-  //rerun prompt
+  document.getElementById("dev").innerHTML = sequenceOutput+" is not a valid positive integer.";
+  //rerun prompt?
 }
